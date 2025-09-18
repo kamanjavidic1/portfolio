@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Zonnes Integrated</title>
+    <!-- Use Tailwind CSS for a modern, utility-first design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0f172a; /* Deep background */
+            color: #e2e8f0; /* Light text color */
+        }
+        .gradient-text {
+            /* Updated gradient for a more vibrant, dynamic feel */
+            background: linear-gradient(to right, #8b5cf6, #22d3ee); /* Purple to Teal */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        /* Custom scrollbar for better visual feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-gray-200">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-sm shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-teal-400">Zonnes Integrated</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-sm font-medium hover:text-teal-400 transition-colors">About</a>
+                <a href="#projects" class="text-sm font-medium hover:text-teal-400 transition-colors">Projects</a>
+                <a href="#services" class="text-sm font-medium hover:text-teal-400 transition-colors">Services</a>
+                <a href="#contact" class="text-sm font-medium hover:text-teal-400 transition-colors">Contact</a>
+                <a href="#resume" class="bg-purple-500 text-white text-sm font-medium py-2 px-4 rounded-full hover:bg-purple-600 transition-colors">Resume</a>
+            </div>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 text-sm font-medium">
+            <a href="#about" class="block py-2 px-4 hover:bg-slate-700 transition-colors">About</a>
+            <a href="#projects" class="block py-2 px-4 hover:bg-slate-700 transition-colors">Projects</a>
+            <a href="#services" class="block py-2 px-4 hover:bg-slate-700 transition-colors">Services</a>
+            <a href="#contact" class="block py-2 px-4 hover:bg-slate-700 transition-colors">Contact</a>
+            <a href="#resume" class="block py-2 px-4 bg-purple-500 text-white text-center hover:bg-purple-600 transition-colors">Resume</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 py-24 flex flex-col items-center md:flex-row md:justify-between md:space-x-12">
+        <!-- Text Content (Left on desktop) -->
+        <div class="text-center md:text-left mb-12 md:mb-0 md:flex-1">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 animate-fade-in">Hi, I’m <span class="gradient-text">Steve</span></h1>
+            <p class="text-lg sm:text-xl text-gray-400 mb-6 max-w-2xl mx-auto md:mx-0 animate-fade-in-up">Network engineer, Trader & Full-stack tinkerer</p>
+            <p class="text-base text-gray-300 max-w-3xl mx-auto md:mx-0 mb-8 animate-fade-in-up delay-200">I design secure networks, build trading tools, and create real-world apps that automate workflows.</p>
+            <div class="space-x-4">
+                <a href="#projects" class="bg-transparent border border-purple-500 text-purple-500 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-purple-500 hover:text-white transition-all duration-300">See projects</a>
+                <a href="#contact" class="bg-teal-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-teal-600 transition-all duration-300">Work with me</a>
+            </div>
+        </div>
+        <!-- Profile Picture Placeholder (Right on desktop) -->
+        <div class="md:flex-shrink-0">
+            <img src="https://placehold.co/200x200/4c1d95/e2e8f0?text=Your+Photo" alt="Zonnes Integrated Profile" class="w-48 h-48 sm:w-64 sm:h-64 rounded-full ring-4 ring-purple-500 object-cover transform transition-transform duration-300 hover:scale-105">
+        </div>
+    </section>
+
+    <!-- About & Services Section -->
+    <section id="about" class="container mx-auto px-4 py-16">
+        <div class="bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        I specialise in network design, CCTV and security solutions, and automation for small-to-medium businesses. I also build trading tools — indicators and apps — that help traders automate ideas into consistent workflows.
+                    </p>
+                    <h4 class="text-2xl font-semibold mt-8 mb-4">Services I Offer</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <span class="text-teal-400">✅</span><span>CCTV & Alarm Installations</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-teal-400">✅</span><span>Network Design & MikroTik Scripting</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-teal-400">✅</span><span>Trading Indicators (Pine Script)</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-teal-400">✅</span><span>Full-stack Web Apps & APIs</span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="services" class="bg-slate-700 p-8 rounded-xl shadow-inner text-center md:text-left">
+                    <h5 class="text-xl font-semibold mb-4">Quick Contact</h5>
+                    <p class="text-gray-300">WhatsApp: <strong class="text-teal-400">0745667327</strong></p>
+                    <a href="mailto:you@example.com" class="mt-4 inline-block bg-teal-500 text-white font-medium py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors w-full md:w-auto">Email me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Carousel -->
+    <section id="projects" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">Selected Projects</h2>
+        <div class="relative w-full overflow-hidden rounded-2xl shadow-xl">
+            <!-- Carousel container -->
+            <div id="project-carousel" class="flex transition-transform duration-500 ease-in-out">
+                <!-- Carousel Item 1 -->
+                <div class="carousel-item w-full flex-shrink-0">
+                    <div class="project-card bg-slate-800">
+                        <img src="https://placehold.co/1200x800/1e293b/94a3b8?text=TradeTalk" class="w-full h-80 object-cover project-image">
+                        <div class="p-6">
+                            <h5 class="text-xl font-bold text-purple-400 mb-2">TradeTalk — Social Trading App</h5>
+                            <p class="text-sm text-gray-400">Realtime chatrooms, whiteboards, and signal sharing for forex traders. Built with React, WebRTC and Django backend.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Item 2 -->
+                <div class="carousel-item w-full flex-shrink-0">
+                    <div class="project-card bg-slate-800">
+                        <img src="https://placehold.co/1200x800/1e293b/94a3b8?text=Smart+Trend" class="w-full h-80 object-cover project-image">
+                        <div class="p-6">
+                            <h5 class="text-xl font-bold text-purple-400 mb-2">Smart Trend Tool</h5>
+                            <p class="text-sm text-gray-400">Multi-timeframe EMA trend detector with orderblock & liquidity logic and clean alerting.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Item 3 -->
+                <div class="carousel-item w-full flex-shrink-0">
+                    <div class="project-card bg-slate-800">
+                        <img src="https://placehold.co/1200x800/1e293b/94a3b8?text=ISP+Tracker" class="w-full h-80 object-cover project-image">
+                        <div class="p-6">
+                            <h5 class="text-xl font-bold text-purple-400 mb-2">ISP Installation Tracker</h5>
+                            <p class="text-sm text-gray-400">A lightweight PHP/SQL system for tracking router installs and materials deployed to technicians.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Navigation -->
+            <button id="prev-btn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full hover:bg-gray-800 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="next-btn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800/50 text-white p-3 rounded-full hover:bg-gray-800 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">Get in Touch</h2>
+        <div class="bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h5 class="text-2xl font-semibold mb-4">Contact Form</h5>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                            <input type="text" id="name" class="w-full bg-slate-700 text-gray-200 border border-slate-600 rounded-lg py-2 px-4 focus:ring-teal-500 focus:border-teal-500 transition-colors" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" id="email" class="w-full bg-slate-700 text-gray-200 border border-slate-600 rounded-lg py-2 px-4 focus:ring-teal-500 focus:border-teal-500 transition-colors" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-slate-700 text-gray-200 border border-slate-600 rounded-lg py-2 px-4 focus:ring-teal-500 focus:border-teal-500 transition-colors" placeholder="Tell me about the project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-teal-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors">Send Message</button>
+                    </form>
+                </div>
+                <div>
+                    <h5 class="text-2xl font-semibold mb-4">Other Ways</h5>
+                    <div class="bg-slate-700 p-6 rounded-xl space-y-4">
+                        <p class="text-gray-300">Phone / WhatsApp: <strong class="text-teal-400">0745667327</strong></p>
+                        <p class="text-gray-300">Location: Nairobi, Kenya</p>
+                        <a href="#resume" class="block bg-slate-600 text-white text-center font-medium py-3 px-6 rounded-lg hover:bg-slate-700 transition-colors">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-sm text-gray-400">
+        <p>© 2025 Steve — Zonnes Integrated. Built with ❤️ using HTML, CSS & Tailwind.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Smooth Scroll -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Get the target element based on the href
+                const targetElement = document.querySelector(this.getAttribute('href'));
+
+                // Close mobile menu after clicking a link
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Only scroll if the target element exists on the page
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Carousel Logic
+        const carousel = document.getElementById('project-carousel');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let currentIndex = 0;
+        let intervalId;
+
+        function showSlide(index) {
+            // Apply a transform to the carousel to slide the projects
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            showSlide(currentIndex);
+        }
+
+        // Event listeners for navigation buttons
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            // Reset the auto-advance timer on manual click
+            resetTimer();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            // Reset the auto-advance timer on manual click
+            resetTimer();
+        });
+
+        // Auto-advance the carousel
+        function startTimer() {
+            intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function resetTimer() {
+            clearInterval(intervalId);
+            startTimer();
+        }
+
+        // Start the carousel on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentIndex);
+            startTimer();
+        });
+    </script>
+</body>
+</html>
